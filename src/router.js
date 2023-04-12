@@ -2,6 +2,7 @@ import HelpLayout from "components/HelpLayout";
 import RootLayout from "components/RootLayout";
 import About from "pages/About";
 import Home from "pages/Home";
+import NotFound from "pages/NotFound";
 import Contact from "pages/help/Contact";
 import Faq from "pages/help/Faq";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             element: <Contact />,
           },
         ],
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
