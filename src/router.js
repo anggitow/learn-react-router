@@ -1,10 +1,18 @@
-import HelpLayout from "components/HelpLayout";
-import RootLayout from "components/RootLayout";
-import About from "pages/About";
+// layouts
+import CareersLayout from "layouts/CareersLayout";
+import HelpLayout from "layouts/HelpLayout";
+import RootLayout from "layouts/RootLayout";
+
+// pages
 import Home from "pages/Home";
-import NotFound from "pages/NotFound";
-import Contact from "pages/help/Contact";
+import About from "pages/About";
 import Faq from "pages/help/Faq";
+import Contact from "pages/help/Contact";
+import CareerDetails, {
+  careerDetailsLoader,
+} from "pages/careers/CareerDetails";
+import Careers, { careersLoader } from "pages/careers/Careers";
+import NotFound from "pages/NotFound";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -32,6 +40,22 @@ const router = createBrowserRouter([
           {
             path: "contact",
             element: <Contact />,
+          },
+        ],
+      },
+      {
+        path: "careers",
+        element: <CareersLayout />,
+        children: [
+          {
+            index: true,
+            element: <Careers />,
+            loader: careersLoader,
+          },
+          {
+            path: ":id",
+            element: <CareerDetails />,
+            loader: careerDetailsLoader,
           },
         ],
       },
