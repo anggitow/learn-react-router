@@ -1,13 +1,16 @@
-import Layout from "components/Layout";
+import HelpLayout from "components/HelpLayout";
+import RootLayout from "components/RootLayout";
 import About from "pages/About";
 import Home from "pages/Home";
+import Contact from "pages/help/Contact";
+import Faq from "pages/help/Faq";
 
 const { createBrowserRouter } = require("react-router-dom");
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <RootLayout />,
     children: [
       {
         index: true,
@@ -16,6 +19,20 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "help",
+        element: <HelpLayout />,
+        children: [
+          {
+            path: "faq",
+            element: <Faq />,
+          },
+          {
+            path: "contact",
+            element: <Contact />,
+          },
+        ],
       },
     ],
   },
