@@ -12,6 +12,7 @@ import CareerDetails, {
   careerDetailsLoader,
 } from "pages/careers/CareerDetails";
 import Careers, { careersLoader } from "pages/careers/Careers";
+import CareerErrors from "pages/careers/CareerErrors";
 import NotFound from "pages/NotFound";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       {
         path: "careers",
         element: <CareersLayout />,
+        errorElement: <CareerErrors />,
         children: [
           {
             index: true,
