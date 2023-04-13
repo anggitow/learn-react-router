@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
 
       return (
         <div className="crumb" key={crumb}>
-          <Link to={currentLink}>{crumb.replace("-", " ")}</Link>
+          <Link to={currentLink}>{crumb.replaceAll("-", " ")}</Link>
         </div>
       );
     });
