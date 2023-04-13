@@ -7,7 +7,7 @@ import RootLayout from "layouts/RootLayout";
 import Home from "pages/Home";
 import About from "pages/About";
 import Faq from "pages/help/Faq";
-import Contact from "pages/help/Contact";
+import Contact, { contactAction } from "pages/help/Contact";
 import CareerDetails, {
   careerDetailsLoader,
 } from "pages/careers/CareerDetails";
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
           {
             path: "contact",
             element: <Contact />,
+            action: contactAction,
           },
         ],
       },
