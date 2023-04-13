@@ -1,3 +1,4 @@
+import { getCareersData } from "data/careers";
 import { useLoaderData } from "react-router-dom";
 
 const CareerDetails = () => {
@@ -23,12 +24,15 @@ const CareerDetails = () => {
 export default CareerDetails;
 
 export const careerDetailsLoader = async ({ params }) => {
-  const { id } = params;
-  const res = await fetch(`http://localhost:4000/careers/${id}`);
+  const { slug } = params;
 
-  if (!res.ok) {
+  const careers = getCareersData();
+
+  const [career] = careers.filter((career) => career.slug === slug);
+
+  if (!career) {
     throw Error("Could not find the career");
   }
 
-  return res.json();
+  return career;
 };

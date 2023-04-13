@@ -4,12 +4,10 @@ import { getCareersData } from "data/careers";
 const Careers = () => {
   const careers = useLoaderData();
 
-  // const careers = getCareersData();
-
   return (
     <div className="careers">
       {careers.map((career) => (
-        <Link to={career.id.toString()} key={career.id}>
+        <Link to={career.slug} key={career.id}>
           <p>{career.title}</p>
           <p>Based in {career.location}</p>
         </Link>
@@ -21,11 +19,11 @@ const Careers = () => {
 export default Careers;
 
 export const careersLoader = async () => {
-  const res = await fetch("http://localhost:4000/careers");
+  const careers = getCareersData();
 
-  if (!res.ok) {
+  if (careers.length === 0) {
     throw Error("Could not fetch the careers");
   }
 
-  return res.json();
+  return careers;
 };
