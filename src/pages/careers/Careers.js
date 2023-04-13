@@ -1,7 +1,10 @@
 import { Link, useLoaderData } from "react-router-dom";
+import { getCareersData } from "data/careers";
 
 const Careers = () => {
   const careers = useLoaderData();
+
+  // const careers = getCareersData();
 
   return (
     <div className="careers">
